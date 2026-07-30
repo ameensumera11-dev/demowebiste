@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free CSS Gradient Generator Online — Copy Code Instantly | Coder Ameen</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <meta name="description" content="Free CSS gradient generator with live preview. Create linear and radial gradients, pick unlimited color stops, adjust angle, and copy ready to use CSS code instantly. No signup.">
+  <meta name="keywords" content="css gradient generator, free css gradient generator online, linear gradient generator, radial gradient generator, css gradient maker, gradient color picker, generate css gradient code">
+  <meta name="author" content="Ameen hasan">
+
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/tools/gradient-generator.html">
+
+  <meta property="og:title" content="Free CSS Gradient Generator — Live Preview, Copy Code Instantly">
+  <meta property="og:description" content="Create linear and radial CSS gradients with a live preview. Pick colors, adjust angle, copy the code. Free, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/tools/gradient-generator.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free CSS Gradient Generator — Live Preview, Copy Code Instantly">
+  <meta name="twitter:description" content="Create linear and radial CSS gradients with a live preview. Pick colors, adjust angle, copy the code. Free, no signup.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://code-cove-nine.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://code-cove-nine.vercel.app/tools.html" },
+      { "@type": "ListItem", "position": 3, "name": "CSS Gradient Generator", "item": "https://code-cove-nine.vercel.app/tools/gradient-generator.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free CSS Gradient Generator",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any (runs in browser)",
+    "url": "https://code-cove-nine.vercel.app/tools/gradient-generator.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Create linear and radial CSS gradients with a live preview, unlimited color stops and instant copyable CSS code."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I create a CSS gradient?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Pick two or more colors, choose linear or radial style, set the angle or shape, and the tool generates ready to use CSS code you can copy straight into your stylesheet." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this CSS gradient generator free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, it is completely free with no signup, no watermark and no limit on how many gradients you can create." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between a linear and radial gradient?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A linear gradient transitions colors along a straight line at a chosen angle, while a radial gradient transitions colors outward from a center point in a circular or elliptical shape." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .gradient-tool{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
+      align-items: start;
+    }
+    @media (max-width: 900px){
+      .gradient-tool{ grid-template-columns: 1fr; }
+    }
+
+    .gradient-preview-wrap{
+      position: sticky;
+      top: 100px;
+    }
+    .gradient-preview{
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,.4);
+      transition: background .15s ease;
+    }
+    .gradient-code-box{
+      margin-top: 1.2em;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 1.2em 1.4em;
+      position: relative;
+    }
+    .gradient-code-box pre{
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: .85rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding-right: 2.4em;
+    }
+    .gradient-copy-btn{
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      background: var(--color-accent);
+      color: #0c0c0c;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .gradient-copy-btn:hover{ transform: translateY(-2px); }
+    .gradient-copy-btn.is-copied{ background: #2ecc71; }
+
+    .gradient-controls{
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 2em;
+    }
+    .gradient-field{
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+      margin-bottom: 1.4em;
+    }
+    .gradient-field label{
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+    .gradient-field select,
+    .gradient-field input[type="range"]{
+      width: 100%;
+    }
+    .gradient-type-toggle{
+      display: flex;
+      gap: .6em;
+      margin-bottom: 1.4em;
+    }
+    .gradient-type-toggle button{
+      flex: 1;
+      padding: .7em 1em;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-surface-2);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: .88rem;
+      font-weight: 500;
+      transition: all .15s ease;
+    }
+    .gradient-type-toggle button.is-active{
+      background: var(--color-accent);
+      color: #0c0c0c;
+      border-color: var(--color-accent);
+    }
+    .angle-row{
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+    .angle-row input[type="range"]{ flex: 1; }
+    .angle-value{
+      min-width: 52px;
+      text-align: right;
+      font-size: .9rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .stops-list{
+      display: flex;
+      flex-direction: column;
+      gap: .8em;
+      margin-bottom: 1em;
+    }
+    .stop-row{
+      display: flex;
+      align-items: center;
+      gap: .8em;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: .6em .8em;
+    }
+    .stop-row input[type="color"]{
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 6px;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .stop-row input[type="range"]{ flex: 1; }
+    .stop-row .stop-percent{
+      min-width: 42px;
+      text-align: right;
+      font-size: .82rem;
+      color: var(--text-muted);
+    }
+    .stop-row .stop-remove{
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: .95rem;
+      padding: .3em;
+      flex-shrink: 0;
+      transition: color .15s ease;
+    }
+    .stop-row .stop-remove:hover{ color: #e74c3c; }
+
+    .add-stop-btn{
+      width: 100%;
+      padding: .7em;
+      border-radius: 8px;
+      border: 1px dashed var(--border-soft);
+      background: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: .88rem;
+      transition: all .15s ease;
+      margin-bottom: 1.6em;
+    }
+    .add-stop-btn:hover{
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .preset-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6em;
+      margin-top: .5em;
+    }
+    .preset-swatch{
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      cursor: pointer;
+      transition: transform .15s ease;
+    }
+    .preset-swatch:hover{ transform: scale(1.08); }
+
+    .format-toggle{
+      display: flex;
+      gap: .5em;
+      margin-bottom: .8em;
+    }
+    .format-toggle button{
+      padding: .4em .9em;
+      font-size: .78rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-surface-2);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .format-toggle button.is-active{
+      background: var(--color-accent);
+      color: #0c0c0c;
+      border-color: var(--color-accent);
+    }
+  </style>
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../project.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../tools.html" class="is-active">Tools</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="../index.html#home">Home</a>
+    <a href="../index.html#about">About</a>
+    <a href="../services.html">Services</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../project.html">Projects</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-droplet"></i> Free Tool</span>
+        <h1 data-reveal>Free CSS Gradient Generator</h1>
+        <p data-reveal>Build linear or radial CSS gradients with a live preview, unlimited color stops and adjustable angle — then copy the ready to use code in one click.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="gradient-tool" data-reveal>
+
+          <div class="gradient-preview-wrap">
+            <div class="gradient-preview" id="gradientPreview"></div>
+
+            <div class="gradient-code-box">
+              <div class="format-toggle">
+                <button type="button" class="is-active" data-format="css" id="fmtCss">CSS</button>
+                <button type="button" data-format="tailwind" id="fmtTailwind">Tailwind</button>
+              </div>
+              <pre id="gradientCode">background: linear-gradient(90deg, #ff7a30 0%, #7c3aed 100%);</pre>
+              <button class="gradient-copy-btn" id="copyBtn" aria-label="Copy CSS code"><i class="fa-solid fa-copy"></i></button>
+            </div>
+          </div>
+
+          <div class="gradient-controls">
+            <div class="gradient-type-toggle">
+              <button type="button" class="is-active" data-type="linear" id="typeLinear"><i class="fa-solid fa-arrow-right"></i> Linear</button>
+              <button type="button" data-type="radial" id="typeRadial"><i class="fa-solid fa-circle-notch"></i> Radial</button>
+            </div>
+
+            <div class="gradient-field" id="angleField">
+              <label for="angleRange">Angle</label>
+              <div class="angle-row">
+                <input type="range" id="angleRange" min="0" max="360" value="90">
+                <span class="angle-value" id="angleValue">90°</span>
+              </div>
+            </div>
+
+            <div class="gradient-field">
+              <label>Color stops</label>
+              <div class="stops-list" id="stopsList"></div>
+              <button type="button" class="add-stop-btn" id="addStopBtn"><i class="fa-solid fa-plus"></i> Add color stop</button>
+            </div>
+
+            <div class="gradient-field">
+              <label>Quick presets</label>
+              <div class="preset-row" id="presetRow"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-article">
+        <article>
+          <h2>How to use this CSS gradient generator</h2>
+          <p>Choose linear or radial as the gradient type, then adjust the angle for linear gradients or leave radial for a center-outward blend. Add as many color stops as you need, drag each stop's position slider to control where the color transition happens, and the preview along with the CSS code updates instantly. When it looks right, hit the copy icon and paste the code directly into your stylesheet.</p>
+
+          <h2>Linear vs radial gradients</h2>
+          <p>A linear gradient blends colors along a straight line at whatever angle you set — 90 degrees runs left to right, 180 degrees runs top to bottom. A radial gradient blends colors outward from a center point in a circular shape, which works well for spotlight effects, buttons and background accents.</p>
+
+          <h2>Where to use CSS gradients</h2>
+          <ul>
+            <li>Hero section backgrounds instead of a flat color or heavy image</li>
+            <li>Button and card hover states for a subtle depth effect</li>
+            <li>Text backgrounds with background-clip for a gradient heading effect</li>
+            <li>Border accents and section dividers</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-banner" data-reveal>
+      <div class="container cta-inner">
+        <div>
+          <h2>Want a custom design system built for your site?</h2>
+          <p>I can design and build a full color palette, gradients and UI components tailored to your brand.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="../contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+          <a href="mailto:coderameen.ai@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="../index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="../script.js"></script>
+
+  <script>
+    (function(){
+      const preview = document.getElementById('gradientPreview');
+      const codeEl = document.getElementById('gradientCode');
+      const copyBtn = document.getElementById('copyBtn');
+      const stopsList = document.getElementById('stopsList');
+      const addStopBtn = document.getElementById('addStopBtn');
+      const angleRange = document.getElementById('angleRange');
+      const angleValue = document.getElementById('angleValue');
+      const angleField = document.getElementById('angleField');
+      const typeLinear = document.getElementById('typeLinear');
+      const typeRadial = document.getElementById('typeRadial');
+      const fmtCss = document.getElementById('fmtCss');
+      const fmtTailwind = document.getElementById('fmtTailwind');
+      const presetRow = document.getElementById('presetRow');
+
+      let type = 'linear';
+      let angle = 90;
+      let format = 'css';
+      let stops = [
+        { color: '#ff7a30', pos: 0 },
+        { color: '#7c3aed', pos: 100 }
+      ];
+
+      const presets = [
+        ['#ff7a30', '#7c3aed'],
+        ['#f857a6', '#ff5858'],
+        ['#00c9ff', '#92fe9d'],
+        ['#fc00ff', '#00dbde'],
+        ['#0f2027', '#2c5364'],
+        ['#f7971e', '#ffd200'],
+        ['#8e2de2', '#4a00e0'],
+        ['#11998e', '#38ef7d']
+      ];
+
+      function buildGradientString(){
+        const stopStr = [...stops]
+          .sort((a,b) => a.pos - b.pos)
+          .map(s => `${s.color} ${s.pos}%`)
+          .join(', ');
+        if (type === 'linear'){
+          return `linear-gradient(${angle}deg, ${stopStr})`;
+        }
+        return `radial-gradient(circle, ${stopStr})`;
+      }
+
+      function updateCode(gradientStr){
+        if (format === 'css'){
+          codeEl.textContent = `background: ${gradientStr};`;
+        } else {
+          const dir = type === 'linear' ? `bg-gradient-to-r` : `bg-[radial-gradient(circle,_var(--tw-gradient-stops))]`;
+          const sorted = [...stops].sort((a,b) => a.pos - b.pos);
+          const from = sorted[0];
+          const to = sorted[sorted.length - 1];
+          const via = sorted.length > 2 ? ` via-[${sorted[1].color}]` : '';
+          codeEl.textContent = `${dir} from-[${from.color}]${via} to-[${to.color}]`;
+        }
+      }
+
+      function render(){
+        const gradientStr = buildGradientString();
+        preview.style.background = gradientStr;
+        updateCode(gradientStr);
+      }
+
+      function renderStops(){
+        stopsList.innerHTML = '';
+        stops.forEach((stop, i) => {
+          const row = document.createElement('div');
+          row.className = 'stop-row';
+          row.innerHTML = `
+            <input type="color" value="${stop.color}" data-index="${i}" class="stop-color">
+            <input type="range" min="0" max="100" value="${stop.pos}" data-index="${i}" class="stop-pos">
+            <span class="stop-percent">${stop.pos}%</span>
+            <button type="button" class="stop-remove" data-index="${i}" aria-label="Remove color stop"><i class="fa-solid fa-xmark"></i></button>
+          `;
+          stopsList.appendChild(row);
+        });
+
+        stopsList.querySelectorAll('.stop-color').forEach(input => {
+          input.addEventListener('input', (e) => {
+            stops[+e.target.dataset.index].color = e.target.value;
+            render();
+          });
+        });
+        stopsList.querySelectorAll('.stop-pos').forEach(input => {
+          input.addEventListener('input', (e) => {
+            const idx = +e.target.dataset.index;
+            stops[idx].pos = +e.target.value;
+            e.target.closest('.stop-row').querySelector('.stop-percent').textContent = `${e.target.value}%`;
+            render();
+          });
+        });
+        stopsList.querySelectorAll('.stop-remove').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            if (stops.length <= 2) return;
+            const idx = +e.currentTarget.dataset.index;
+            stops.splice(idx, 1);
+            renderStops();
+            render();
+          });
+        });
+
+        addStopBtn.style.opacity = stops.length >= 6 ? '.4' : '1';
+        addStopBtn.style.pointerEvents = stops.length >= 6 ? 'none' : 'auto';
+      }
+
+      addStopBtn.addEventListener('click', () => {
+        if (stops.length >= 6) return;
+        stops.push({ color: '#ffffff', pos: 50 });
+        renderStops();
+        render();
+      });
+
+      angleRange.addEventListener('input', () => {
+        angle = +angleRange.value;
+        angleValue.textContent = `${angle}°`;
+        render();
+      });
+
+      typeLinear.addEventListener('click', () => {
+        type = 'linear';
+        typeLinear.classList.add('is-active');
+        typeRadial.classList.remove('is-active');
+        angleField.style.display = 'flex';
+        render();
+      });
+      typeRadial.addEventListener('click', () => {
+        type = 'radial';
+        typeRadial.classList.add('is-active');
+        typeLinear.classList.remove('is-active');
+        angleField.style.display = 'none';
+        render();
+      });
+
+      fmtCss.addEventListener('click', () => {
+        format = 'css';
+        fmtCss.classList.add('is-active');
+        fmtTailwind.classList.remove('is-active');
+        render();
+      });
+      fmtTailwind.addEventListener('click', () => {
+        format = 'tailwind';
+        fmtTailwind.classList.add('is-active');
+        fmtCss.classList.remove('is-active');
+        render();
+      });
+
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(codeEl.textContent).then(() => {
+          copyBtn.classList.add('is-copied');
+          copyBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+          setTimeout(() => {
+            copyBtn.classList.remove('is-copied');
+            copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i>';
+          }, 1500);
+        });
+      });
+
+      presets.forEach(([c1, c2]) => {
+        const sw = document.createElement('div');
+        sw.className = 'preset-swatch';
+        sw.style.background = `linear-gradient(90deg, ${c1}, ${c2})`;
+        sw.addEventListener('click', () => {
+          stops = [{ color: c1, pos: 0 }, { color: c2, pos: 100 }];
+          renderStops();
+          render();
+        });
+        presetRow.appendChild(sw);
+      });
+
+      renderStops();
+      render();
+    })();
+  </script>
+</body>
+</html>

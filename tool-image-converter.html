@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Image Converter Online — JPG, PNG & WebP | Coder Ameen</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="description" content="Convert images between JPG, PNG and WebP for free, right in your browser. No upload, no signup — fast, private image conversion with adjustable quality.">
+  <meta name="keywords" content="free image converter online, convert jpg to webp online free, png to webp converter free, image format converter">
+  <meta name="author" content="Ameen hasan">
+
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/tool-image-converter.html">
+
+  <meta property="og:title" content="Free Image Converter Online — JPG, PNG & WebP">
+  <meta property="og:description" content="Convert images between JPG, PNG and WebP for free, right in your browser. No upload, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/tool-image-converter.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Image Converter Online — JPG, PNG & WebP">
+  <meta name="twitter:description" content="Convert images between JPG, PNG and WebP for free, right in your browser. No upload, no signup.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://code-cove-nine.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://code-cove-nine.vercel.app/tools.html" },
+      { "@type": "ListItem", "position": 3, "name": "Image Converter", "item": "https://code-cove-nine.vercel.app/tool-image-converter.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free Image Converter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any (runs in browser)",
+    "url": "https://code-cove-nine.vercel.app/tool-image-converter.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert images between JPG, PNG and WebP for free, directly in the browser."
+  }
+  </script>
+
+  <style>
+    .converter-box{
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 2em;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .drop-zone{
+      border: 2px dashed var(--border-soft);
+      border-radius: var(--radius);
+      padding: 3em 1.5em;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+    .drop-zone.is-dragover, .drop-zone:hover{
+      border-color: var(--color-accent);
+      background: var(--bg-surface-2);
+    }
+    .drop-zone i{
+      font-size: 2.4rem;
+      color: var(--color-accent);
+      margin-bottom: .5em;
+    }
+    .drop-zone p{
+      color: var(--text-muted);
+      font-size: .9rem;
+    }
+    .converter-controls{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4em;
+      margin: 1.8em 0;
+      align-items: flex-end;
+    }
+    .control-group{
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+    }
+    .control-group label{
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+    .control-group select{
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: .6em 1em;
+      color: var(--text-primary);
+      font-size: .9rem;
+    }
+    .control-group input[type="range"]{
+      accent-color: var(--color-accent);
+    }
+    .quality-value{
+      font-size: .8rem;
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+    .file-list{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-top: 1.6em;
+    }
+    .file-row{
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 1em;
+      flex-wrap: wrap;
+    }
+    .file-row img{
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .file-info{
+      flex: 1;
+      min-width: 140px;
+    }
+    .file-info .name{
+      font-size: .88rem;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .file-info .size{
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+    .file-row .btn{
+      padding: .55em 1.1em;
+      font-size: .82rem;
+    }
+    .savings-badge{
+      font-size: .75rem;
+      background: rgba(62, 207, 110, .15);
+      color: #3ecf6e;
+      padding: .3em .7em;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="tools.html" class="is-active">Tools</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="project.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-images"></i> Free Tool</span>
+        <h1 data-reveal>Free Image Converter</h1>
+        <p data-reveal>Convert images between JPG, PNG and WebP instantly. Everything happens in your browser — nothing is uploaded to any server, so your images stay private.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="converter-box" data-reveal>
+          <div class="drop-zone" id="dropZone">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <p><strong>Click to choose images</strong> or drag and drop here<br>Supports JPG, PNG and WebP</p>
+            <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" multiple hidden>
+          </div>
+
+          <div class="converter-controls">
+            <div class="control-group">
+              <label for="formatSelect">Convert to</label>
+              <select id="formatSelect">
+                <option value="image/webp">WebP</option>
+                <option value="image/jpeg">JPG</option>
+                <option value="image/png">PNG</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="qualityRange">Quality <span class="quality-value" id="qualityValue">85%</span></label>
+              <input type="range" id="qualityRange" min="10" max="100" value="85">
+            </div>
+          </div>
+
+          <div class="file-list" id="fileList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-article">
+        <article>
+          <h2>Why convert images to WebP?</h2>
+          <p>WebP typically produces 60-90% smaller files than JPG or PNG at the same visual quality, which means faster loading websites and better Core Web Vitals scores for SEO. This tool runs the conversion entirely inside your browser using the Canvas API, so your images are never sent anywhere.</p>
+          <h2>How to use this tool</h2>
+          <ul>
+            <li>Click the upload area or drag and drop one or more images</li>
+            <li>Choose your target format — WebP, JPG or PNG</li>
+            <li>Adjust the quality slider (lower quality means smaller file size)</li>
+            <li>Click "Convert" next to each image, then download the result</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-banner" data-reveal>
+      <div class="container cta-inner">
+        <div>
+          <h2>Need your whole website optimized?</h2>
+          <p>I can convert, compress and set up every image on your site for faster load times.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+          <a href="mailto:coderameen.ai@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function(){
+      const dropZone = document.getElementById('dropZone');
+      const fileInput = document.getElementById('fileInput');
+      const fileList = document.getElementById('fileList');
+      const formatSelect = document.getElementById('formatSelect');
+      const qualityRange = document.getElementById('qualityRange');
+      const qualityValue = document.getElementById('qualityValue');
+
+      qualityRange.addEventListener('input', () => {
+        qualityValue.textContent = qualityRange.value + '%';
+      });
+
+      dropZone.addEventListener('click', () => fileInput.click());
+      dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('is-dragover'); });
+      dropZone.addEventListener('dragleave', () => dropZone.classList.remove('is-dragover'));
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('is-dragover');
+        handleFiles(e.dataTransfer.files);
+      });
+      fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+
+      function formatBytes(bytes){
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+      }
+
+      function handleFiles(files){
+        Array.from(files).forEach((file) => {
+          if (!file.type.startsWith('image/')) return;
+
+          const row = document.createElement('div');
+          row.className = 'file-row';
+
+          const img = document.createElement('img');
+          img.src = URL.createObjectURL(file);
+
+          const info = document.createElement('div');
+          info.className = 'file-info';
+          info.innerHTML = `<div class="name">${file.name}</div><div class="size">${formatBytes(file.size)}</div>`;
+
+          const convertBtn = document.createElement('button');
+          convertBtn.className = 'btn btn-primary';
+          convertBtn.textContent = 'Convert';
+
+          row.appendChild(img);
+          row.appendChild(info);
+          row.appendChild(convertBtn);
+          fileList.appendChild(row);
+
+          convertBtn.addEventListener('click', () => {
+            convertBtn.disabled = true;
+            convertBtn.textContent = 'Converting...';
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const image = new Image();
+              image.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = image.width;
+                canvas.height = image.height;
+                const ctx = canvas.getContext('2d');
+
+                // fill white background for PNG-with-transparency -> JPG conversions
+                if (formatSelect.value === 'image/jpeg') {
+                  ctx.fillStyle = '#ffffff';
+                  ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+                ctx.drawImage(image, 0, 0);
+
+                const quality = Number(qualityRange.value) / 100;
+                canvas.toBlob((blob) => {
+                  if (!blob) {
+                    convertBtn.textContent = 'Failed';
+                    return;
+                  }
+                  const ext = formatSelect.value.split('/')[1];
+                  const url = URL.createObjectURL(blob);
+                  const savedPct = Math.max(0, Math.round((1 - blob.size / file.size) * 100));
+
+                  convertBtn.remove();
+
+                  const savings = document.createElement('span');
+                  savings.className = 'savings-badge';
+                  savings.textContent = savedPct > 0 ? `-${savedPct}% size` : formatBytes(blob.size);
+
+                  const downloadLink = document.createElement('a');
+                  downloadLink.href = url;
+                  downloadLink.download = file.name.replace(/\.[^.]+$/, '') + '.' + ext;
+                  downloadLink.className = 'btn btn-outline';
+                  downloadLink.innerHTML = '<i class="fa-solid fa-download"></i> Download';
+
+                  row.appendChild(savings);
+                  row.appendChild(downloadLink);
+                }, formatSelect.value, quality);
+              };
+              image.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

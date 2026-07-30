@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free QR Code Generator Online — No Signup | Coder Ameen</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="description" content="Generate a free QR code from any link, text or contact info instantly. No signup, no watermark, downloadable in one click.">
+  <meta name="keywords" content="free qr code generator online, qr code generator no signup, generate qr code from text, free qr code maker">
+  <meta name="author" content="Ameen hasan">
+
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/tool-qr-generator.html">
+
+  <meta property="og:title" content="Free QR Code Generator — No Signup">
+  <meta property="og:description" content="Generate a free QR code from any link or text instantly. No signup, no watermark.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/tool-qr-generator.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free QR Code Generator — No Signup">
+  <meta name="twitter:description" content="Generate a free QR code from any link or text instantly. No signup, no watermark.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://code-cove-nine.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://code-cove-nine.vercel.app/tools.html" },
+      { "@type": "ListItem", "position": 3, "name": "QR Code Generator", "item": "https://code-cove-nine.vercel.app/tool-qr-generator.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free QR Code Generator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any (runs in browser)",
+    "url": "https://code-cove-nine.vercel.app/tool-qr-generator.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Generate a free QR code from any link or text instantly, with no signup or watermark."
+  }
+  </script>
+
+  <style>
+    .converter-box{
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 2.2em;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .qr-field{
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+      margin-bottom: 1.4em;
+    }
+    .qr-field label{
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+    .qr-field input, .qr-field select{
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: .8em 1em;
+      color: var(--text-primary);
+      font-size: .95rem;
+    }
+    .qr-row{
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+    .qr-row .qr-field{ flex: 1; min-width: 130px; }
+    .qr-preview{
+      text-align: center;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 2em;
+    }
+    .qr-preview img{
+      max-width: 220px;
+      width: 100%;
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+    }
+    .qr-preview .btn{
+      margin-top: 1.2em;
+    }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="tools.html" class="is-active">Tools</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="project.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-qrcode"></i> Free Tool</span>
+        <h1 data-reveal>Free QR Code Generator</h1>
+        <p data-reveal>Turn any link, text, WiFi detail or contact info into a scannable QR code — instantly, with no signup and no watermark.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="converter-box" data-reveal>
+          <div class="qr-field">
+            <label for="qrText">Link or text</label>
+            <input type="text" id="qrText" placeholder="https://your-website.com" value="https://code-cove-nine.vercel.app">
+          </div>
+
+          <div class="qr-row">
+            <div class="qr-field">
+              <label for="qrSize">Size</label>
+              <select id="qrSize">
+                <option value="200">Small (200px)</option>
+                <option value="300" selected>Medium (300px)</option>
+                <option value="500">Large (500px)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="qr-preview">
+            <img id="qrImage" src="" alt="Generated QR code">
+            <div>
+              <a href="#" id="qrDownload" class="btn btn-primary" download="qr-code.png"><i class="fa-solid fa-download"></i> Download QR Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-article">
+        <article>
+          <h2>What can I put in a QR code?</h2>
+          <p>Anything text based works — a website link, a WhatsApp number, a WiFi password, a menu link, or plain text like an address. The QR code updates live as you type, so you can preview it before downloading.</p>
+          <h2>Where QR codes are useful</h2>
+          <ul>
+            <li>Business cards linking to a portfolio or LinkedIn profile</li>
+            <li>Restaurant tables linking to a digital menu</li>
+            <li>Flyers and posters linking to a website or WhatsApp number</li>
+            <li>Product packaging linking to instructions or a warranty page</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-banner" data-reveal>
+      <div class="container cta-inner">
+        <div>
+          <h2>Want a QR code built into your business site?</h2>
+          <p>I can add dynamic QR codes, digital menus, or contact tools directly into your website.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+          <a href="mailto:coderameen.ai@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function(){
+      const qrText = document.getElementById('qrText');
+      const qrSize = document.getElementById('qrSize');
+      const qrImage = document.getElementById('qrImage');
+      const qrDownload = document.getElementById('qrDownload');
+
+      function updateQr(){
+        const text = qrText.value.trim() || 'https://code-cove-nine.vercel.app';
+        const size = qrSize.value;
+        const url = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(text)}`;
+        qrImage.src = url;
+        qrDownload.href = url;
+      }
+
+      let debounceTimer;
+      qrText.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(updateQr, 350);
+      });
+      qrSize.addEventListener('change', updateQr);
+
+      updateQr();
+    })();
+  </script>
+</body>
+</html>

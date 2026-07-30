@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Website Analyzer Online — Speed & SEO Checker | Coder Ameen</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="description" content="Free website analyzer that checks any site's real time speed, page size, HTTPS status, and basic SEO signals like title, meta description and image count.">
+  <meta name="keywords" content="free website analyzer online, website speed checker free, seo checker free online, website health check tool">
+  <meta name="author" content="Ameen hasan">
+
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/tool-website-analyzer.html">
+
+  <meta property="og:title" content="Free Website Analyzer — Speed & SEO Checker">
+  <meta property="og:description" content="Check any website's real time speed, page size and basic SEO signals for free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/tool-website-analyzer.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Website Analyzer — Speed & SEO Checker">
+  <meta name="twitter:description" content="Check any website's real time speed, page size and basic SEO signals for free.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://code-cove-nine.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://code-cove-nine.vercel.app/tools.html" },
+      { "@type": "ListItem", "position": 3, "name": "Website Analyzer", "item": "https://code-cove-nine.vercel.app/tool-website-analyzer.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free Website Analyzer",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any (runs in browser)",
+    "url": "https://code-cove-nine.vercel.app/tool-website-analyzer.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Check any website's real time speed, page size and basic SEO signals for free."
+  }
+  </script>
+
+  <style>
+    .converter-box{
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 2.2em;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .analyzer-row{
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+    .analyzer-row input{
+      flex: 1;
+      min-width: 200px;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: .8em 1.1em;
+      color: var(--text-primary);
+      font-size: .95rem;
+    }
+    .analyzer-results{
+      margin-top: 1.8em;
+      display: none;
+    }
+    .analyzer-results.is-visible{
+      display: block;
+    }
+    .metric-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+      margin-bottom: 1.4em;
+    }
+    .metric-box{
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 1.1em;
+      text-align: center;
+    }
+    .metric-box .value{
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    .metric-box .label{
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-top: .3em;
+    }
+    .check-list{
+      display: flex;
+      flex-direction: column;
+      gap: .7em;
+    }
+    .check-item{
+      display: flex;
+      align-items: center;
+      gap: .7em;
+      font-size: .88rem;
+      padding: .7em .9em;
+      background: var(--bg-surface-2);
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+    }
+    .check-item i.fa-circle-check{ color: #3ecf6e; }
+    .check-item i.fa-circle-xmark{ color: #ff5c5c; }
+    .analyzer-loading{
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .9rem;
+      display: none;
+      margin-top: 1.4em;
+    }
+    .analyzer-loading.is-visible{ display: block; }
+    .analyzer-error{
+      margin-top: 1.2em;
+      color: #ff5c5c;
+      font-size: .88rem;
+      display: none;
+    }
+    .analyzer-error.is-visible{ display: block; }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="tools.html" class="is-active">Tools</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="project.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-chart-line"></i> Free Tool</span>
+        <h1 data-reveal>Free Website Analyzer</h1>
+        <p data-reveal>Enter any website URL and get a real time check of its speed, page size and basic SEO signals, fetched live at the moment you click Analyze.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="converter-box" data-reveal>
+          <div class="analyzer-row">
+            <input type="text" id="urlInput" placeholder="yourwebsite.com" value="code-cove-nine.vercel.app">
+            <button class="btn btn-primary" id="analyzeBtn"><i class="fa-solid fa-magnifying-glass"></i> Analyze</button>
+          </div>
+
+          <div class="analyzer-loading" id="analyzerLoading">Fetching and analyzing the page, this takes a few seconds...</div>
+          <div class="analyzer-error" id="analyzerError"></div>
+
+          <div class="analyzer-results" id="analyzerResults">
+            <div class="metric-grid">
+              <div class="metric-box">
+                <div class="value" id="metricSpeed">-</div>
+                <div class="label">Response Time</div>
+              </div>
+              <div class="metric-box">
+                <div class="value" id="metricSize">-</div>
+                <div class="label">Page Size</div>
+              </div>
+              <div class="metric-box">
+                <div class="value" id="metricImages">-</div>
+                <div class="label">Images Found</div>
+              </div>
+              <div class="metric-box">
+                <div class="value" id="metricStatus">-</div>
+                <div class="label">Status Code</div>
+              </div>
+            </div>
+
+            <div class="check-list" id="checkList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-article">
+        <article>
+          <h2>What this tool checks</h2>
+          <p>This analyzer fetches the page live, right when you click Analyze, and reports the response time, total page size, and a handful of on page SEO signals: whether the page uses HTTPS, has a title tag, meta description, mobile viewport tag, canonical link, and whether it serves images in WebP format. It is a quick first pass, not a full audit, but it catches the most common issues that slow a site down or hurt search rankings.</p>
+          <h2>A note on real traffic numbers</h2>
+          <p>This tool measures a page's technical health, not visitor counts. Genuine traffic and visitor analytics for any given site require paid data providers or access to that site's own analytics account, so a truly free public traffic checker for any random domain does not exist in an accurate form. If you want to track your own site's real visitors, I recommend enabling Vercel Analytics or Google Analytics directly on your project, both have solid free tiers.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-banner" data-reveal>
+      <div class="container cta-inner">
+        <div>
+          <h2>Want your site's issues fixed, not just found?</h2>
+          <p>I can optimize speed, SEO and set up real analytics on your website.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+          <a href="mailto:coderameen.ai@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function(){
+      const urlInput = document.getElementById('urlInput');
+      const analyzeBtn = document.getElementById('analyzeBtn');
+      const loadingEl = document.getElementById('analyzerLoading');
+      const errorEl = document.getElementById('analyzerError');
+      const resultsEl = document.getElementById('analyzerResults');
+      const checkList = document.getElementById('checkList');
+
+      function checkRow(label, passed){
+        return `<div class="check-item">
+          <i class="fa-solid ${passed ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
+          <span>${label}</span>
+        </div>`;
+      }
+
+      async function analyze(){
+        const url = urlInput.value.trim();
+        if (!url) return;
+
+        resultsEl.classList.remove('is-visible');
+        errorEl.classList.remove('is-visible');
+        loadingEl.classList.add('is-visible');
+        analyzeBtn.disabled = true;
+
+        try {
+          const res = await fetch('/api/analyze', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url }),
+          });
+          const data = await res.json();
+
+          if (!res.ok) {
+            errorEl.textContent = data.error || 'Something went wrong.';
+            errorEl.classList.add('is-visible');
+            return;
+          }
+
+          document.getElementById('metricSpeed').textContent = data.responseTimeMs + ' ms';
+          document.getElementById('metricSize').textContent = data.pageSizeKb + ' KB';
+          document.getElementById('metricImages').textContent = data.imageCount;
+          document.getElementById('metricStatus').textContent = data.statusCode;
+
+          checkList.innerHTML = [
+            checkRow('Uses HTTPS', data.isHttps),
+            checkRow('Has a title tag' + (data.title ? `: "${data.title.slice(0, 50)}"` : ''), !!data.title),
+            checkRow('Has a meta description', !!data.description),
+            checkRow('Has a mobile viewport tag', data.hasViewport),
+            checkRow('Has a canonical link tag', data.hasCanonical),
+            checkRow('Serves images in WebP format', data.usesWebp),
+          ].join('');
+
+          resultsEl.classList.add('is-visible');
+        } catch (err) {
+          errorEl.textContent = "Couldn't reach the analyzer. Please try again.";
+          errorEl.classList.add('is-visible');
+        } finally {
+          loadingEl.classList.remove('is-visible');
+          analyzeBtn.disabled = false;
+        }
+      }
+
+      analyzeBtn.addEventListener('click', analyze);
+      urlInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') analyze();
+      });
+    })();
+  </script>
+</body>
+</html>

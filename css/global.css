@@ -1,0 +1,234 @@
+/* GLOBAL STYLES
+   Fonts, color tokens, spacing tokens, resets. Everything else (layout,
+   components, page-specific rules) lives in main.css and responsive.css.
+   Note: Google Fonts are now loaded via a <link> tag in each page's <head>
+   instead of @import here, since @import blocks rendering while it waits
+   for a second network round-trip. A <link> lets the browser fetch the
+   font in parallel with everything else. */
+
+/* colors */
+:root{
+  /* brand colors, kept as given */
+  --ink-black: #0a0a0a;
+  --stormy-teal: #15616d;
+  --papaya-whip: #ffecd1;
+  --vivid-tangerine: #ff7d00;
+  --brandy: #78290f;
+
+  /* neutrals, used for contrast on top of the brand palette */
+  --white: #ffffff;
+  --off-white: #f7f4ef;
+  --grey-400: #9aa5ab;
+  --grey-600: #5c6b70;
+  --black: #000000;
+
+  /* semantic tokens, these are the ones components should use */
+  --color-accent: var(--vivid-tangerine);
+  --color-accent-deep: var(--brandy);
+  --color-secondary: var(--text-primary);
+
+  /* dark mode is the default theme */
+  --bg-body: var(--ink-black);
+  --bg-surface: #161616;
+  --bg-surface-2: #1e1e1e;
+  --text-primary: var(--papaya-whip);
+  --text-muted: #b9c6cc;
+  --border-soft: rgba(255, 236, 209, 0.12);
+  --shadow-color: rgba(0, 0, 0, 0.45);
+
+  /* fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* layout */
+  --max-width: 1200px;
+  --radius: 14px;
+
+  /* spacing, desktop: 5em top/bottom, clamp on the sides */
+  --space-block: 5em;
+  --space-inline: clamp(1em, 4vw, 4em);
+
+  /* transitions */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --transition-fast: .2s var(--ease);
+  --transition-med: .4s var(--ease);
+}
+
+/* light mode overrides */
+:root[data-theme="light"]{
+  --bg-body: var(--papaya-whip);
+  --bg-surface: var(--white);
+  --bg-surface-2: #fff7ec;
+  --text-primary: var(--ink-black);
+  --text-muted: var(--grey-600);
+  --border-soft: rgba(0, 21, 36, 0.1);
+  --shadow-color: rgba(0, 21, 36, 0.12);
+}
+
+/* Reset */
+*, *::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body{
+  background: var(--bg-body);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: none;
+  overflow-x: hidden;
+  transition: background var(--transition-med), color var(--transition-med);
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol{
+  list-style: none;
+}
+
+button, input, textarea, select{
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+h1, h2, h3, h4{
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* visible focus state for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible{
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Shared Layout  */
+.container{
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-inline);
+}
+
+.section{
+  padding-block: var(--space-block);
+}
+
+.eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.section-head{
+  margin-bottom: 2.5em;
+}
+
+.section-head h2{
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  margin-top: .4em;
+}
+
+.section-head p{
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-top: .8em;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  padding: .9em 1.8em;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-primary{
+  background: var(--color-accent);
+  color: var(--ink-black);
+}
+
+.btn-primary:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -8px rgba(255, 125, 0, .55);
+}
+
+.btn-outline{
+  border: 1.5px solid var(--border-soft);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover{
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.btn-sm{
+  padding: .6em 1.3em;
+  font-size: .85rem;
+}
+
+/* [reveal] elements start hidden and get animated in by script.js via IntersectionObserver */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+
+[data-reveal].is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}

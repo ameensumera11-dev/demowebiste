@@ -1,0 +1,162 @@
+ /* RESPONSIVE STYLES  tablet and mobile rules for index.html + project.html
+ Tablet and below: block spacing drops to 3em, hamburger takes over */
+
+
+
+@media (max-width: 1024px){
+  :root{
+    --space-block: 3em;
+  }
+
+  .hero .container,
+  .about .container,
+  .experience-grid,
+  .contact .container{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual{
+    order: -1;
+  }
+
+  .experience-visual{
+    order: -1;
+  }
+
+  .experience-visual .browser-frame{
+    flex: none;
+  }
+
+  .experience-visual .browser-frame img{
+    height: 260px;
+  }
+
+  .service-row{
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+
+  .service-row.is-reversed .service-visual,
+  .service-row.is-reversed .service-copy{
+    order: initial;
+  }
+
+  .service-visual{
+    aspect-ratio: 3 / 2;
+  }
+
+  .skills-grid,
+  .pricing-grid,
+  .projects-grid,
+  .blog-grid,
+  .tools-grid,
+  .contact-methods-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-carousel{
+    --visible: 2;
+  }
+
+  .services-carousel{
+    --visible: 2;
+  }
+
+  .project-grid-page{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links{
+    display: none;
+  }
+
+  .hamburger{
+    display: flex;
+  }
+
+  .cta-inner{
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  .service-visual{
+    padding: .5em;
+  }
+
+  .service-index{
+    width: 42px;
+    height: 42px;
+    font-size: .95rem;
+  }
+
+  .projects-grid,
+  .skills-grid,
+  .pricing-grid,
+  .project-grid-page,
+  .blog-grid,
+  .tools-grid,
+  .contact-methods-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-carousel{
+    --visible: 1;
+  }
+
+  .services-carousel{
+    --visible: 1;
+  }
+
+  .cta-inner{
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .cta-actions{
+    flex-direction: column;
+  }
+
+  .hero-cta{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn{
+    justify-content: center;
+  }
+
+  .form-row{
+    grid-template-columns: 1fr;
+  }
+
+  .about-content .stats{
+    gap: 1em;
+  }
+
+  .footer-top,
+  .footer-bottom{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .back-to-top{
+    right: 1.2em;
+    bottom: 1.2em;
+  }
+
+  .contact-form{
+    padding: 1.6em;
+  }
+}
+
+/* Hide cursor */
+@media (hover: none), (pointer: coarse){
+  .cursor-dot,
+  .cursor-ring{
+    display: none;
+  }
+}

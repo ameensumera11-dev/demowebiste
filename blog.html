@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Web Design, Artificial Intelligence & SEO Articles - Coder Ameen</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="description" content="Articles on Artificial Intelligence, web design and building faster, more search friendly websites, written by Ameen hasan of Coder Ameen.">
+  <meta name="keywords" content="web design blog, Artificial Intelligence articles, website speed SEO, web design trends, custom code vs Artificial Intelligence">
+  <meta name="author" content="Ameen hasan">
+
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/blog.html">
+
+  <meta property="og:title" content="Blog | Web Design, Artificial Intelligence & SEO Articles - Coder Ameen">
+  <meta property="og:description" content="Articles on Artificial Intelligence, web design and building faster, more search friendly websites, written by Ameen hasan of Coder Ameen.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/blog.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | Web Design, Artificial Intelligence & SEO Articles - Coder Ameen">
+  <meta name="twitter:description" content="Articles on Artificial Intelligence, web design and building faster, more search friendly websites, written by Ameen hasan of Coder Ameen.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://code-cove-nine.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://code-cove-nine.vercel.app/blog.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Coder Ameen Blog",
+    "url": "https://code-cove-nine.vercel.app/blog.html",
+    "author": { "@type": "Person", "name": "Ameen hasan" },
+    "blogPost": [
+      { "@type": "BlogPosting", "headline": "Artificial Intelligence vs Custom Code: Which One Should You Choose?", "url": "https://code-cove-nine.vercel.app/blog/Artificial Intelligence-vs-custom-code.html" },
+      { "@type": "BlogPosting", "headline": "Why Website Speed Is a Ranking Factor (And How to Fix It)", "url": "https://code-cove-nine.vercel.app/blog/website-speed-seo.html" },
+      { "@type": "BlogPosting", "headline": "5 Web Design Trends Shaping Small Business Sites in 2026", "url": "https://code-cove-nine.vercel.app/blog/web-design-trends-2026.html" }
+    ]
+  }
+  </script>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    // Absolute failsafe: force-remove the loader after 4s no matter what,
+    // even if script.js fails to load for any reason.
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="blog.html" class="is-active">Blog</a>
+        <a href="tools.html">Tools</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="project.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-newspaper"></i> Blog</span>
+        <h1 data-reveal>Articles &amp; Notes</h1>
+        <p data-reveal>Notes on Artificial Intelligence, web design and building faster, more search friendly websites. New articles added regularly.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid">
+
+          <!-- Newest first: add new blog cards to the top of this grid -->
+          <a href="blog/Artificial Intelligence-vs-custom-code.html" class="blog-card" data-reveal>
+            <div class="blog-thumb"><img src="images/blog/Artificial Intelligence-vs-custom-code.webp" alt="Artificial Intelligence vs Custom Code" loading="lazy" decoding="async"></div>
+            <div class="blog-body">
+              <span class="blog-date">Jul 2026 &middot; 5 min read</span>
+              <h3>Artificial Intelligence vs Custom Code: Which One Should You Choose?</h3>
+              <p>A practical breakdown of when to build on Artificial Intelligence and when a hand coded site is the smarter choice for your business.</p>
+              <span class="blog-link">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="blog/website-speed-seo.html" class="blog-card" data-reveal>
+            <div class="blog-thumb"><img src="images/blog/website-speed-seo.webp" alt="Website Speed and SEO" loading="lazy" decoding="async"></div>
+            <div class="blog-body">
+              <span class="blog-date">Jul 2026 &middot; 4 min read</span>
+              <h3>Why Website Speed Is a Ranking Factor (And How to Fix It)</h3>
+              <p>How image formats, hosting and clean code affect Core Web Vitals, and simple steps to make any site load faster.</p>
+              <span class="blog-link">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="blog/web-design-trends-2026.html" class="blog-card" data-reveal>
+            <div class="blog-thumb"><img src="images/blog/web-design-trends-2026.webp" alt="Web Design Trends 2026" loading="lazy" decoding="async"></div>
+            <div class="blog-body">
+              <span class="blog-date">Jul 2026 &middot; 4 min read</span>
+              <h3>5 Web Design Trends Shaping Small Business Sites in 2026</h3>
+              <p>From dark mode defaults to lightweight animation, here's what's actually worth adopting this year.</p>
+              <span class="blog-link">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

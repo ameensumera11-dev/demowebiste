@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Image Resizer Online — Bulk Resize Photos by Pixels | Coder Ameen</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <meta name="description" content="Free online image resizer. Set the exact width and height in pixels and resize photos instantly in your browser — no Photoshop, no signup. Resize multiple images in bulk and download as a ZIP.">
+  <meta name="keywords" content="free image resizer online, resize image by pixels, bulk image resizer, resize multiple photos online, image resizer no photoshop, reduce image size online free">
+  <meta name="author" content="Ameen hasan">
+
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/tools/image-resizer.html">
+
+  <meta property="og:title" content="Free Image Resizer — Bulk Resize Photos by Exact Pixels">
+  <meta property="og:description" content="Set exact width and height in pixels and resize one or many photos instantly, right in your browser. No Photoshop, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/tools/image-resizer.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Image Resizer — Bulk Resize Photos by Exact Pixels">
+  <meta name="twitter:description" content="Set exact width and height in pixels and resize one or many photos instantly, right in your browser. No Photoshop, no signup.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://code-cove-nine.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://code-cove-nine.vercel.app/tools.html" },
+      { "@type": "ListItem", "position": 3, "name": "Image Resizer", "item": "https://code-cove-nine.vercel.app/tools/image-resizer.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free Image Resizer",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any (runs in browser)",
+    "url": "https://code-cove-nine.vercel.app/tools/image-resizer.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Resize one or many images to an exact width and height in pixels, entirely in the browser, with bulk ZIP download."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I resize an image without Photoshop?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, this tool resizes images entirely in your browser. Upload a photo, set the exact width and height in pixels, and download the resized version — no software installation required." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I resize multiple images at once?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, upload multiple photos at once, set one target size, and resize all of them in bulk. You can download each image individually or get all resized images together in a single ZIP file." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does resizing images here upload my photos anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, everything happens locally in your browser using the Canvas API. Your images are never uploaded to a server, so they stay completely private." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .resizer-box{
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 2em;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .drop-zone{
+      border: 2px dashed var(--border-soft);
+      border-radius: var(--radius);
+      padding: 3em 1.5em;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+    .drop-zone.is-dragover, .drop-zone:hover{
+      border-color: var(--color-accent);
+      background: var(--bg-surface-2);
+    }
+    .drop-zone i{
+      font-size: 2.4rem;
+      color: var(--color-accent);
+      margin-bottom: .5em;
+    }
+    .drop-zone p{
+      color: var(--text-muted);
+      font-size: .9rem;
+    }
+
+    .resize-controls{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4em;
+      margin: 1.8em 0;
+      align-items: flex-end;
+    }
+    .control-group{
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+    }
+    .control-group label{
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+    .control-group input[type="number"]{
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: .6em 1em;
+      color: var(--text-primary);
+      font-size: .9rem;
+      width: 110px;
+    }
+    .dimension-row{
+      display: flex;
+      align-items: center;
+      gap: .8em;
+    }
+    .lock-btn{
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      color: var(--text-muted);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s ease;
+      align-self: flex-end;
+      margin-bottom: 0;
+    }
+    .lock-btn.is-locked{
+      background: var(--color-accent);
+      color: #0c0c0c;
+      border-color: var(--color-accent);
+    }
+    .preset-sizes{
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5em;
+    }
+    .preset-chip{
+      padding: .4em .9em;
+      font-size: .78rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-surface-2);
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .15s ease;
+    }
+    .preset-chip:hover{
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .bulk-actions{
+      display: flex;
+      gap: .8em;
+      flex-wrap: wrap;
+      margin-bottom: 1.6em;
+    }
+    .bulk-actions .btn{
+      font-size: .85rem;
+      padding: .7em 1.3em;
+    }
+
+    .file-list{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .file-row{
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 1em;
+      flex-wrap: wrap;
+    }
+    .file-row img{
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .file-info{
+      flex: 1;
+      min-width: 160px;
+    }
+    .file-info .name{
+      font-size: .88rem;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .file-info .size{
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+    .file-info .new-dims{
+      font-size: .78rem;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+    .file-row .btn{
+      padding: .55em 1.1em;
+      font-size: .82rem;
+    }
+    .file-row .remove-btn{
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: .4em;
+      transition: color .15s ease;
+    }
+    .file-row .remove-btn:hover{ color: #e74c3c; }
+    .savings-badge{
+      font-size: .75rem;
+      background: rgba(62, 207, 110, .15);
+      color: #3ecf6e;
+      padding: .3em .7em;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .empty-hint{
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .85rem;
+      padding: 1em 0;
+    }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../project.html">Projects</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../tools.html" class="is-active">Tools</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="../index.html#home">Home</a>
+    <a href="../index.html#about">About</a>
+    <a href="../services.html">Services</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../project.html">Projects</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-expand"></i> Free Tool</span>
+        <h1 data-reveal>Free Image Resizer</h1>
+        <p data-reveal>Set the exact width and height in pixels and resize one or many photos instantly. No Photoshop, no upload, no signup — everything happens right in your browser.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="resizer-box" data-reveal>
+          <div class="drop-zone" id="dropZone">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <p><strong>Click to choose images</strong> or drag and drop here<br>Supports JPG, PNG and WebP — select multiple files for bulk resize</p>
+            <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" multiple hidden>
+          </div>
+
+          <div class="resize-controls">
+            <div class="control-group">
+              <label for="widthInput">Width (px)</label>
+              <div class="dimension-row">
+                <input type="number" id="widthInput" min="1" value="800">
+              </div>
+            </div>
+
+            <button type="button" class="lock-btn is-locked" id="lockRatioBtn" title="Lock aspect ratio" aria-label="Toggle lock aspect ratio">
+              <i class="fa-solid fa-link"></i>
+            </button>
+
+            <div class="control-group">
+              <label for="heightInput">Height (px)</label>
+              <div class="dimension-row">
+                <input type="number" id="heightInput" min="1" value="600">
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label>Quick presets</label>
+              <div class="preset-sizes">
+                <button type="button" class="preset-chip" data-w="1080" data-h="1080">1080×1080</button>
+                <button type="button" class="preset-chip" data-w="1200" data-h="630">1200×630</button>
+                <button type="button" class="preset-chip" data-w="1920" data-h="1080">1920×1080</button>
+                <button type="button" class="preset-chip" data-w="800" data-h="600">800×600</button>
+                <button type="button" class="preset-chip" data-w="400" data-h="400">400×400</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bulk-actions" id="bulkActions" style="display:none;">
+            <button class="btn btn-primary" id="resizeAllBtn"><i class="fa-solid fa-expand"></i> Resize All</button>
+            <button class="btn btn-outline" id="downloadZipBtn" disabled><i class="fa-solid fa-file-zipper"></i> Download All as ZIP</button>
+            <button class="btn btn-outline" id="clearAllBtn"><i class="fa-solid fa-trash"></i> Clear All</button>
+          </div>
+
+          <div class="file-list" id="fileList"></div>
+          <p class="empty-hint" id="emptyHint">No images added yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-article">
+        <article>
+          <h2>How to resize an image without Photoshop</h2>
+          <p>Upload one or more photos, type in the exact width and height you need in pixels, and click Resize. The tool uses your browser's built-in Canvas API to redraw each image at the new size, so there is no software to install and no file ever leaves your device.</p>
+          <h2>Resizing multiple photos in bulk</h2>
+          <p>Select several images at once from the upload area, set a single target size, and hit "Resize All" to process every photo together. Once done, download images one at a time or grab everything at once as a ZIP file.</p>
+          <h2>Tips for better results</h2>
+          <ul>
+            <li>Keep the lock icon on to maintain the original aspect ratio and avoid stretched or squished photos</li>
+            <li>Use the preset chips for common sizes like social media posts (1080×1080), banners (1200×630) or Full HD (1920×1080)</li>
+            <li>Resizing down (making an image smaller) always looks sharp — resizing up beyond the original size can look blurry</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-banner" data-reveal>
+      <div class="container cta-inner">
+        <div>
+          <h2>Need your whole website's images optimized?</h2>
+          <p>I can resize, compress and set up every image on your site for faster load times and better SEO.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="../contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+          <a href="mailto:coderameen.ai@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="../index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <script>
+    (function(){
+      const dropZone = document.getElementById('dropZone');
+      const fileInput = document.getElementById('fileInput');
+      const fileList = document.getElementById('fileList');
+      const emptyHint = document.getElementById('emptyHint');
+      const widthInput = document.getElementById('widthInput');
+      const heightInput = document.getElementById('heightInput');
+      const lockRatioBtn = document.getElementById('lockRatioBtn');
+      const bulkActions = document.getElementById('bulkActions');
+      const resizeAllBtn = document.getElementById('resizeAllBtn');
+      const downloadZipBtn = document.getElementById('downloadZipBtn');
+      const clearAllBtn = document.getElementById('clearAllBtn');
+      const presetChips = document.querySelectorAll('.preset-chip');
+
+      let items = [];
+      let ratioLocked = true;
+      let itemIdCounter = 0;
+
+      lockRatioBtn.addEventListener('click', () => {
+        ratioLocked = !ratioLocked;
+        lockRatioBtn.classList.toggle('is-locked', ratioLocked);
+        lockRatioBtn.innerHTML = ratioLocked
+          ? '<i class="fa-solid fa-link"></i>'
+          : '<i class="fa-solid fa-link-slash"></i>';
+      });
+
+      widthInput.addEventListener('input', () => {
+        if (!ratioLocked || items.length === 0) return;
+        const ref = items[0];
+        const ratio = ref.originalHeight / ref.originalWidth;
+        heightInput.value = Math.round(widthInput.value * ratio);
+      });
+      heightInput.addEventListener('input', () => {
+        if (!ratioLocked || items.length === 0) return;
+        const ref = items[0];
+        const ratio = ref.originalWidth / ref.originalHeight;
+        widthInput.value = Math.round(heightInput.value * ratio);
+      });
+
+      presetChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          widthInput.value = chip.dataset.w;
+          heightInput.value = chip.dataset.h;
+        });
+      });
+
+      function formatBytes(bytes){
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+      }
+
+      dropZone.addEventListener('click', () => fileInput.click());
+      dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('is-dragover'); });
+      dropZone.addEventListener('dragleave', () => dropZone.classList.remove('is-dragover'));
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('is-dragover');
+        handleFiles(e.dataTransfer.files);
+      });
+      fileInput.addEventListener('change', () => {
+        handleFiles(fileInput.files);
+        fileInput.value = '';
+      });
+
+      function handleFiles(files){
+        Array.from(files).forEach((file) => {
+          if (!file.type.startsWith('image/')) return;
+
+          const id = 'img_' + (itemIdCounter++);
+          const objectUrl = URL.createObjectURL(file);
+          const img = new Image();
+
+          const item = {
+            id, file, objectUrl,
+            originalWidth: 0, originalHeight: 0,
+            resizedBlob: null
+          };
+          items.push(item);
+
+          img.onload = () => {
+            item.originalWidth = img.naturalWidth;
+            item.originalHeight = img.naturalHeight;
+            if (items.length === 1 && ratioLocked){
+              const ratio = item.originalHeight / item.originalWidth;
+              heightInput.value = Math.round(widthInput.value * ratio);
+            }
+          };
+          img.src = objectUrl;
+
+          renderFileRow(item);
+        });
+        updateEmptyState();
+      }
+
+      function renderFileRow(item){
+        const row = document.createElement('div');
+        row.className = 'file-row';
+        row.id = item.id;
+
+        const img = document.createElement('img');
+        img.src = item.objectUrl;
+
+        const info = document.createElement('div');
+        info.className = 'file-info';
+        info.innerHTML = `
+          <div class="name">${item.file.name}</div>
+          <div class="size">${formatBytes(item.file.size)}</div>
+          <div class="new-dims" data-role="dims"></div>
+        `;
+
+        const resizeBtn = document.createElement('button');
+        resizeBtn.className = 'btn btn-primary';
+        resizeBtn.textContent = 'Resize';
+        resizeBtn.addEventListener('click', () => resizeItem(item, row));
+
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-btn';
+        removeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        removeBtn.setAttribute('aria-label', 'Remove image');
+        removeBtn.addEventListener('click', () => {
+          items = items.filter(i => i.id !== item.id);
+          row.remove();
+          updateEmptyState();
+          updateZipButtonState();
+        });
+
+        row.appendChild(img);
+        row.appendChild(info);
+        row.appendChild(resizeBtn);
+        row.appendChild(removeBtn);
+        fileList.appendChild(row);
+      }
+
+      function resizeItem(item, row){
+        return new Promise((resolve) => {
+          const targetW = parseInt(widthInput.value, 10) || 800;
+          const targetH = parseInt(heightInput.value, 10) || 600;
+
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = targetW;
+            canvas.height = targetH;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, targetW, targetH);
+
+            const mimeType = item.file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+            canvas.toBlob((blob) => {
+              item.resizedBlob = blob;
+
+              const dimsEl = row.querySelector('[data-role="dims"]');
+              if (dimsEl) dimsEl.textContent = `Resized to ${targetW}×${targetH}px`;
+
+              let downloadLink = row.querySelector('.download-link');
+              if (!downloadLink){
+                downloadLink = document.createElement('a');
+                downloadLink.className = 'btn btn-outline download-link';
+                downloadLink.innerHTML = '<i class="fa-solid fa-download"></i> Download';
+                row.insertBefore(downloadLink, row.querySelector('.remove-btn'));
+              }
+              const url = URL.createObjectURL(blob);
+              downloadLink.href = url;
+              downloadLink.download = `resized-${targetW}x${targetH}-${item.file.name.replace(/\.[^.]+$/, '')}.${mimeType === 'image/png' ? 'png' : 'jpg'}`;
+
+              updateZipButtonState();
+              resolve();
+            }, mimeType, 0.9);
+          };
+          img.src = item.objectUrl;
+        });
+      }
+
+      resizeAllBtn.addEventListener('click', async () => {
+        resizeAllBtn.disabled = true;
+        resizeAllBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Resizing...';
+        for (const item of items){
+          const row = document.getElementById(item.id);
+          if (row) await resizeItem(item, row);
+        }
+        resizeAllBtn.disabled = false;
+        resizeAllBtn.innerHTML = '<i class="fa-solid fa-expand"></i> Resize All';
+      });
+
+      function updateZipButtonState(){
+        const anyResized = items.some(i => i.resizedBlob);
+        downloadZipBtn.disabled = !anyResized;
+      }
+
+      downloadZipBtn.addEventListener('click', async () => {
+        const resizedItems = items.filter(i => i.resizedBlob);
+        if (resizedItems.length === 0) return;
+
+        downloadZipBtn.disabled = true;
+        downloadZipBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Zipping...';
+
+        const zip = new JSZip();
+        const targetW = parseInt(widthInput.value, 10) || 800;
+        const targetH = parseInt(heightInput.value, 10) || 600;
+
+        resizedItems.forEach((item) => {
+          const ext = item.file.type === 'image/png' ? 'png' : 'jpg';
+          const baseName = item.file.name.replace(/\.[^.]+$/, '');
+          zip.file(`resized-${targetW}x${targetH}-${baseName}.${ext}`, item.resizedBlob);
+        });
+
+        const content = await zip.generateAsync({ type: 'blob' });
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'resized-images.zip';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        downloadZipBtn.disabled = false;
+        downloadZipBtn.innerHTML = '<i class="fa-solid fa-file-zipper"></i> Download All as ZIP';
+      });
+
+      clearAllBtn.addEventListener('click', () => {
+        items = [];
+        fileList.innerHTML = '';
+        updateEmptyState();
+        updateZipButtonState();
+      });
+
+      function updateEmptyState(){
+        emptyHint.style.display = items.length === 0 ? 'block' : 'none';
+        bulkActions.style.display = items.length === 0 ? 'none' : 'flex';
+      }
+
+      updateEmptyState();
+    })();
+  </script>
+</body>
+</html>

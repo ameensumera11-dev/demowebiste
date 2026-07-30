@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Website Speed Is a Ranking Factor (And How to Fix It) | Ameen hasan</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <meta name="description" content="How image formats, hosting and clean code affect Core Web Vitals and Google rankings, with simple steps to make any website load faster.">
+  <meta name="keywords" content="website speed SEO, Core Web Vitals, page speed optimization, faster website loading, image compression WebP">
+  <meta name="author" content="Ameen hasan">
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/blog/website-speed-seo.html">
+
+  <meta property="og:title" content="Why Website Speed Is a Ranking Factor (And How to Fix It)">
+  <meta property="og:description" content="How image formats, hosting and clean code affect Core Web Vitals, and simple steps to make any site load faster.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/blog/website-speed-seo.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Website Speed Is a Ranking Factor (And How to Fix It)">
+  <meta name="twitter:description" content="How image formats, hosting and clean code affect Core Web Vitals, and simple steps to make any site load faster.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Website Speed Is a Ranking Factor (And How to Fix It)",
+    "description": "A practical comparison of Artificial Intelligence and hand coded websites to help you pick the right platform for your project.",
+    "author": { "@type": "Person", "name": "Ameen hasan" },
+    "publisher": { "@type": "Person", "name": "Ameen hasan" },
+    "datePublished": "2026-07-05",
+    "dateModified": "2026-07-09",
+    "image": "https://code-cove-nine.vercel.app/images/ameenlogmain.png",
+    "mainEntityOfPage": "https://code-cove-nine.vercel.app/blog/website-speed-seo.html"
+  }
+  </script>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    // Absolute failsafe: force-remove the loader after 4s no matter what,
+    // even if script.js fails to load for any reason.
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">Coder <span>Ameen</span></a>
+      <nav class="nav-links">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../services.html">Services</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../project.html">Projects</a>
+        <a href="../blog.html" class="is-active">Blog</a>
+        <a href="../tools.html">Tools</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="../index.html#home">Home</a>
+    <a href="../index.html#about">About</a>
+    <a href="../services.html">Services</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../project.html">Projects</a>
+    <a href="../blog.html">Blog</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-blog"></i> Blog</span>
+        <h1 data-reveal>Why Website Speed Is a Ranking Factor (And How to Fix It)</h1>
+        <p data-reveal>A practical breakdown of when to build on Artificial Intelligence and when a hand coded site is the smarter choice for your business.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-article">
+        <a href="../blog.html" class="blog-back"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+
+        <div class="article-meta">
+          <span><i class="fa-regular fa-calendar"></i> July 2026</span>
+          <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+          <span><i class="fa-regular fa-user"></i> Ameen hasan</span>
+        </div>
+
+        <div class="article-cover"><img src="../images/blog/website-speed-seo.webp" alt="Website Speed and SEO"></div>
+
+        <article>
+          <p>Google has confirmed for years that page speed is a ranking signal, and in my own client work, the sites that load fast consistently perform better in search and keep visitors around longer. It's one of the first things I check when a client comes to me with an underperforming site, and more often than not, the fix isn't a redesign — it's a handful of technical changes that most site owners never think about. Here's what actually moves the needle, in the order I usually tackle it.</p>
+
+          <h2>Image format is the biggest quick win</h2>
+          <p>Unoptimized JPG and PNG images are, by far, the most common reason a site loads slowly. Converting images to WebP typically cuts file size by 60 to 90 percent with no visible quality loss, because WebP uses more efficient compression than older formats while preserving detail. On one recent portfolio rebuild, switching every image to WebP took the total image weight from over 40MB down to under 1MB — the same visuals, a fraction of the download.</p>
+          <p>The impact compounds quickly. A page with ten unoptimized product photos might be pulling 15-20MB just in images before a single line of text renders. Convert those same images to WebP and compress them properly, and that number often drops under 2MB, which on a typical mobile connection is the difference between a two second load and an eight second one.</p>
+
+          <h2>What Core Web Vitals actually measure</h2>
+          <p>Google uses three specific metrics to judge whether a page feels fast to a real visitor, and each one catches a different kind of problem:</p>
+          <ul>
+            <li><strong>LCP (Largest Contentful Paint)</strong> — how fast the main content loads, usually a hero image or heading. This is most affected by image size, server response time, and render blocking CSS or JavaScript.</li>
+            <li><strong>CLS (Cumulative Layout Shift)</strong> — whether elements jump around as the page loads, which happens when images or ads load without a reserved space, pushing content down mid read.</li>
+            <li><strong>INP (Interaction to Next Paint)</strong> — how quickly the page responds when someone clicks or taps, which mostly comes down to how much JavaScript is running and how efficiently it's written.</li>
+          </ul>
+          <p>All three feed into how Google scores a page's overall user experience, and all three are things a visitor notices even if they've never heard the term "Core Web Vitals" — they just experience it as a site that either feels smooth or feels sluggish.</p>
+
+          <h2>Simple steps that fix most speed problems</h2>
+          <ul>
+            <li>Convert images to WebP and set explicit width/height attributes so the layout doesn't shift as they load</li>
+            <li>Use <code>loading="lazy"</code> on images below the fold, so the browser doesn't waste bandwidth loading content the visitor hasn't scrolled to yet</li>
+            <li>Minify CSS and JavaScript, and remove unused plugins on Artificial Intelligence builds — every inactive plugin still adds weight to the admin, and many poorly coded ones load scripts on every page even when they're not needed there</li>
+            <li>Host on fast infrastructure — Vercel and similar platforms handle caching, compression and global delivery well by default, without extra configuration</li>
+            <li>Set a canonical URL and clean meta tags so Google indexes the right version of each page instead of splitting ranking signals across duplicates</li>
+            <li>Audit third party scripts — analytics tools, chat widgets and font embeds are common hidden sources of slowdown that rarely get questioned once they're added</li>
+          </ul>
+
+          <h2>How I test a site's speed</h2>
+          <p>Before touching any code, I run the site through Google PageSpeed Insights and check the Core Web Vitals report in Search Console if the client has access. That gives a baseline for both mobile and desktop, since mobile scores are almost always worse and matter more for ranking, given how much search traffic now comes from phones. From there, it's usually clear within minutes whether the bottleneck is images, unused code, or server response time.</p>
+
+          <h2>Why this matters beyond rankings</h2>
+          <p>A one second delay in load time measurably increases bounce rate — visitors simply leave before the page finishes loading, and that behavior itself becomes a negative signal that can hurt rankings further over time. Speed isn't just an SEO checkbox, it directly affects whether a visitor sticks around long enough to read your content, browse your products, or fill out your contact form. It's one of the first things I audit on every project I take on, because no amount of good design or copywriting matters if half your visitors never wait long enough to see it.</p>
+        </article>
+
+        <div class="article-cta">
+          <h3>Not sure which one fits your project?</h3>
+          <p>Send me a few details and I'll tell you honestly which route makes more sense for you.</p>
+          <a href="../contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="../index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

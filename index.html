@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ameen hasan | Artificial Intelligence Developer &amp; Web Designer</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="description" content="Ameen hasan is a Artificial Intelligence developer and web designer building fast, responsive websites with Artificial Intelligence, HTML, CSS and JavaScript.">
+  <meta name="keywords" content="Ameen hasan, Artificial Intelligence Developer, Web Designer, Frontend Developer, Portfolio">
+  <meta name="author" content="Ameen hasan">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ameen hasan | Artificial Intelligence Developer & Web Designer">
+  <meta property="og:description" content="Fast, responsive websites built with Artificial Intelligence, HTML, CSS and JavaScript.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ameen hasan | Artificial Intelligence Developer & Web Designer">
+  <meta name="twitter:description" content="Fast, responsive websites built with Artificial Intelligence, HTML, CSS and JavaScript.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ameen hasan",
+    "url": "https://code-cove-nine.vercel.app/",
+    "image": "https://code-cove-nine.vercel.app/images/ameenlogmain.png",
+    "jobTitle": "Artificial Intelligence Developer & Web Designer",
+    "email": "coderameen.ai@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Abbottabad",
+      "addressCountry": "PK"
+    },
+    "sameAs": [
+      "https://github.com/coderameen",
+      "https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/",
+      "https://www.instagram.com/cove.code/"
+    ],
+    "knowsAbout": ["Artificial Intelligence", "WooCommerce", "HTML", "CSS", "JavaScript", "Web Design", "SEO"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Coder Ameen",
+    "url": "https://code-cove-nine.vercel.app/",
+    "description": "Portfolio of Ameen hasan, a Artificial Intelligence developer and web designer building fast, responsive websites.",
+    "publisher": {
+      "@type": "Person",
+      "name": "Ameen hasan"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Coder Ameen",
+    "url": "https://code-cove-nine.vercel.app/",
+    "image": "https://code-cove-nine.vercel.app/images/ameenlogmain.png",
+    "priceRange": "$120-$350",
+    "areaServed": "Worldwide",
+    "founder": {
+      "@type": "Person",
+      "name": "Ameen hasan"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Abbottabad",
+      "addressCountry": "PK"
+    }
+  }
+  </script>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <!-- loading screen -->
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    // Absolute failsafe: force-remove the loader after 4s no matter what,
+    // even if script.js fails to load for any reason.
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <!-- custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#home" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="tools.html">Tools</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile nav -->
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- hero -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content" data-reveal>
+          <h1>Hi, I'm <span class="accent">Ameen hasan</span></h1>
+          <p class="role">Artificial Intelligence Engineer | AI Trainer</p>
+          <p>I am an AI Engineer specializing in building enterprise AI solutions across cloud and on-premises environments. I helps customers, clients, and organizations unlock the power of AI by integrating advanced AI capabilities into their existing services, applications, and business processes.</p>
+
+          <div class="hero-cta">
+            <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+            <a href="https://www.youtube.com/@coderameen" target="_blank" download class="btn btn-outline">YouTube Channel</a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <div class="browser-frame">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="images/ameenlogmain.png" alt="Ameen hasan">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about-visual" data-reveal>
+          <div class="browser-frame">
+            <div class="frame-bar"><span></span><span></span><span></span></div>
+            <img src="images/hamali Mockup.webp" alt="About Ameen hasan" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <div class="about-content" data-reveal>
+          <span class="eyebrow">About Me</span>
+          <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem); padding: 0.3em 0">Leveraging with AI capabilities</h2>
+          <p>AI Engineer with 5+ years of experience in Python, Full-Stack Development, and AI-driven solutions. Skilled in building scalable, secure, and production-ready enterprise applications with expertise across the complete software lifecycle — from architecture and development to deployment and monitoring.</p>
+          <p style="margin-top: 1em;">Empowering clients, employees, and students with Generative AI knowledge to build secure, enterprise-grade AI solutions through training, mentorship, and consulting.</p>
+
+          <div class="stats">
+            <div class="stat">
+              <h3><span class="counter" data-count="5">0</span>+</h3>
+              <span>Years experience</span>
+            </div>
+            <div class="stat">
+              <h3><span class="counter" data-count="18"></span>+</h3>
+              <span>Delivered services</span>
+            </div>
+            <div class="stat">
+              <h3><span class="counter" data-count="12">0</span>+</h3>
+              <span>Happy clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- our services -->
+    <section id="our-services" class="section our-services">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Our Services</span>
+          <h2>Websites built for every kind of business</h2>
+          <p>From agencies to ecommerce stores, I design and build sites that match the way each business actually works.</p>
+        </div>
+
+        <div class="services-carousels" data-reveal>
+          <div class="services-row">
+            <div class="services-carousel services-carousel-ltr" id="servicesRow1">
+              <div class="services-track">
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_agency_website.webp" alt="Agency website design" loading="lazy" decoding="async">
+                  <span>Agency</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_business_website.webp" alt="Business website design" loading="lazy" decoding="async">
+                  <span>Business</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_ecommerce_website.webp" alt="Ecommerce website design" loading="lazy" decoding="async">
+                  <span>Ecommerce</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_educational_website.webp" alt="Educational website design" loading="lazy" decoding="async">
+                  <span>Educational</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_healthcare_website.webp" alt="Healthcare website design" loading="lazy" decoding="async">
+                  <span>Healthcare</span>
+                </div>
+
+                <!-- duplicate set for seamless infinite loop -->
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_agency_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Agency</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_business_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Business</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_ecommerce_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Ecommerce</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_educational_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Educational</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_healthcare_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Healthcare</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="services-row">
+            <div class="services-carousel services-carousel-rtl" id="servicesRow2">
+              <div class="services-track">
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_landing_page.webp" alt="Landing page design" loading="lazy" decoding="async">
+                  <span>Landing Page</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_portfolio_website.webp" alt="Portfolio website design" loading="lazy" decoding="async">
+                  <span>Portfolio</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_real_estate_website.webp" alt="Real estate website design" loading="lazy" decoding="async">
+                  <span>Real Estate</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_restaurant_website.webp" alt="Restaurant website design" loading="lazy" decoding="async">
+                  <span>Restaurant</span>
+                </div>
+                <div class="services-card">
+                  <img src="images/services-images/service-section-images/v2_saas_website.webp" alt="SaaS website design" loading="lazy" decoding="async">
+                  <span>SaaS</span>
+                </div>
+
+                <!-- duplicate set for seamless infinite loop -->
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_landing_page.webp" alt="" loading="lazy" decoding="async">
+                  <span>Landing Page</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_portfolio_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Portfolio</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_real_estate_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Real Estate</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_restaurant_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>Restaurant</span>
+                </div>
+                <div class="services-card" aria-hidden="true">
+                  <img src="images/services-images/service-section-images/v2_saas_website.webp" alt="" loading="lazy" decoding="async">
+                  <span>SaaS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="services-cta" data-reveal>
+          <a href="services.html" class="btn btn-outline">See All Services <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- experience -->
+    <section id="experience" class="section experience">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Experience</span>
+          <h2>Where I've worked</h2>
+          <p>A quick look at the roles that shaped how I build and design for the web.</p>
+        </div>
+
+        <div class="experience-grid">
+          <div class="timeline">
+            <div class="timeline-item" data-reveal>
+              <span class="period">Jun 2023 — Present</span>
+              <h3>Graphic &amp; Web Developer</h3>
+              <p class="place">Abbottabad, Pakistan</p>
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Building custom Artificial Intelligence websites for local and international clients</li>
+                <li><i class="fa-solid fa-check"></i> Designing responsive layouts with HTML and CSS</li>
+                <li><i class="fa-solid fa-check"></i> Creating logos, banners and graphics in Photoshop and Canva</li>
+                <li><i class="fa-solid fa-check"></i> Delivering complete branding solutions for small businesses</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item" data-reveal>
+              <span class="period">Jun 2024 — Present</span>
+              <h3>Website Developer &amp; Designer, Freelance</h3>
+              <p class="place">Remote</p>
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Offering services on Fiverr and LinkedIn</li>
+                <li><i class="fa-solid fa-check"></i> Building Artificial Intelligence websites, landing pages and portfolio sites</li>
+                <li><i class="fa-solid fa-check"></i> Working directly with business owners on their online presence</li>
+                <li><i class="fa-solid fa-check"></i> Handling design, development and after launch support end to end</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="experience-visual" data-reveal>
+            <div class="browser-frame">
+              <div class="frame-bar"><span></span><span></span><span></span></div>
+              <img src="images/Qanadeel Mockup.webp" alt="A website built by Ameen hasan" loading="lazy" decoding="async">
+            </div>
+            <div class="experience-note">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>Every role has pushed me to ship cleaner code and cleaner design, one project at a time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- skills -->
+    <section id="skills" class="section skills">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Skills</span>
+          <h2>What I work with</h2>
+          <p>The tools and technologies I use to turn a design into a working website.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card" data-reveal>
+            <div class="icon"><i class="fa-brands fa-Artificial Intelligence"></i></div>
+            <h3>Artificial Intelligence &amp; CMS</h3>
+            <div class="skill-tags">
+              <span><i class="fa-brands fa-Artificial Intelligence"></i> Artificial Intelligence</span>
+              <span><i class="fa-solid fa-cart-shopping"></i> WooCommerce</span>
+              <span><i class="fa-solid fa-layer-group"></i> Elementor</span>
+              <span><i class="fa-solid fa-list-check"></i> ACF</span>
+              <span><i class="fa-solid fa-puzzle-piece"></i> CPT UI</span>
+              <span><i class="fa-solid fa-magnifying-glass-chart"></i> Yoast SEO</span>
+              <span><i class="fa-solid fa-sliders"></i> Customizer</span>
+              <span><i class="fa-solid fa-envelope"></i> SMTP / WP Mail</span>
+            </div>
+          </div>
+
+          <div class="skill-card" data-reveal>
+            <div class="icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+              <span><i class="fa-brands fa-html5"></i> HTML5</span>
+              <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+              <span><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span><i class="fa-solid fa-mobile-screen"></i> Responsive Design</span>
+              <span><i class="fa-solid fa-table-cells"></i> Flexbox / Grid</span>
+              <span><i class="fa-solid fa-bug"></i> Debugging</span>
+              <span><i class="fa-solid fa-pen-ruler"></i> UI / UX Design</span>
+            </div>
+          </div>
+
+          <div class="skill-card" data-reveal>
+            <div class="icon"><i class="fa-solid fa-palette"></i></div>
+            <h3>Design Tools</h3>
+            <div class="skill-tags">
+              <span><i class="fa-brands fa-adobe"></i> Photoshop</span>
+              <span><i class="fa-solid fa-shapes"></i> Canva</span>
+              <span><i class="fa-brands fa-figma"></i> Figma</span>
+              <span><i class="fa-solid fa-swatchbook"></i> Color Theory</span>
+              <span><i class="fa-solid fa-image"></i> Image Editing</span>
+              <span><i class="fa-solid fa-font"></i> Typography</span>
+            </div>
+          </div>
+
+          <div class="skill-card" data-reveal>
+            <div class="icon"><i class="fa-solid fa-toolbox"></i></div>
+            <h3>Dev &amp; Tools</h3>
+            <div class="skill-tags">
+              <span><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span><i class="fa-brands fa-github"></i> GitHub</span>
+              <span><i class="fa-solid fa-cloud-arrow-up"></i> Vercel</span>
+              <span><i class="fa-solid fa-laptop-code"></i> VS Code</span>
+              <span><i class="fa-brands fa-linux"></i> Linux</span>
+              <span><i class="fa-solid fa-terminal"></i> DevTools</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- projects -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Projects</span>
+          <h2>Selected work</h2>
+          <p>A couple of recent builds, from a hand coded landing page to a full WooCommerce store.</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card" data-reveal>
+            <div class="project-thumb">
+              <img src="images/Visa Hosting Mockup.webp" alt="Visa Hosting website mockup" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Tailwind</span></div>
+              <h3>Visa Hosting</h3>
+              <p>A hand coded marketing site for a visa and hosting service, built from scratch with Tailwind for fast, responsive layouts and a clean checkout flow.</p>
+              <div class="project-links">
+                <a href="https://github.com/coderameen/visa-hosting" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+                <a href="https://visa-hosting.vercel.app/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-reveal>
+            <div class="project-thumb">
+              <img src="images/hamali Mockup.webp" alt="Hamali Store website mockup" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <div class="tags"><span>Artificial Intelligence</span><span>WooCommerce</span><span>Elementor</span></div>
+              <h3>Hamali Store</h3>
+              <p>A full WooCommerce store built on Artificial Intelligence, styled with Elementor, covering product catalogues, cart, checkout and a mobile friendly layout.</p>
+              <div class="project-links">
+                <a href="https://hamali.store/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-reveal>
+            <div class="project-thumb">
+              <img src="images/Qanadeel Mockup.webp" alt="Drive Elite website" loading="lazy" decoding="async">
+            </div>
+            <div class="project-body">
+              <div class="tags"><span>Artificial Intelligence</span><span>Elementor</span></div>
+              <h3>Drive Elite</h3>
+              <p>A car rental business website with a booking focused homepage and fleet showcase, built on Artificial Intelligence with Elementor.</p>
+              <div class="project-links">
+                <a href="https://github.com/coderameen/driveelite" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+                <a href="https://driveelite-eight.vercel.app/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-more" data-reveal>
+          <a href="project.html" class="btn btn-primary"><i class="fa-solid fa-grip"></i> View More Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- tools -->
+    <section id="tools" class="section tools">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Free Tools</span>
+          <h2>Handy tools, free to use</h2>
+          <p>A few small web tools I've built and use myself — no signup, no cost, just open and use.</p>
+        </div>
+
+        <div class="tools-grid">
+          <a href="tools/image-converter.html" class="tool-card" data-reveal>
+            <div class="tool-icon"><i class="fa-solid fa-images"></i></div>
+            <h3>Image Converter</h3>
+            <p>Convert images between JPG, PNG and WebP right in your browser — fast, private, nothing uploaded to a server.</p>
+            <span class="tool-link">Open Tool <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a href="tools/currency-converter.html" class="tool-card" data-reveal>
+            <div class="tool-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+            <h3>Currency Converter</h3>
+            <p>Check live exchange rates between world currencies, updated in real time from an open exchange rate feed.</p>
+            <span class="tool-link">Open Tool <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a href="tools/qr-generator.html" class="tool-card" data-reveal>
+            <div class="tool-icon"><i class="fa-solid fa-qrcode"></i></div>
+            <h3>QR Code Generator</h3>
+            <p>Turn any link, text or contact info into a downloadable QR code instantly, free and unlimited.</p>
+            <span class="tool-link">Open Tool <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+
+        <div class="tools-cta" data-reveal>
+          <a href="tools.html" class="btn btn-outline">See All Tools <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- blog -->
+    <section id="blog" class="section blog">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Blog</span>
+          <h2>Latest articles</h2>
+          <p>Notes on Artificial Intelligence, web design and building faster, more search friendly websites.</p>
+        </div>
+
+        <div class="blog-grid">
+          <a href="blog/Artificial Intelligence-vs-custom-code.html" class="blog-card" data-reveal>
+            <div class="blog-thumb"><img src="images/blog/Artificial Intelligence-vs-custom-code.webp" alt="Artificial Intelligence vs Custom Code" loading="lazy" decoding="async"></div>
+            <div class="blog-body">
+              <span class="blog-date">Jul 2026 &middot; 5 min read</span>
+              <h3>Artificial Intelligence vs Custom Code: Which One Should You Choose?</h3>
+              <p>A practical breakdown of when to build on Artificial Intelligence and when a hand coded site is the smarter choice for your business.</p>
+              <span class="blog-link">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="blog/website-speed-seo.html" class="blog-card" data-reveal>
+            <div class="blog-thumb"><img src="images/blog/website-speed-seo.webp" alt="Website Speed and SEO" loading="lazy" decoding="async"></div>
+            <div class="blog-body">
+              <span class="blog-date">Jul 2026 &middot; 4 min read</span>
+              <h3>Why Website Speed Is a Ranking Factor (And How to Fix It)</h3>
+              <p>How image formats, hosting and clean code affect Core Web Vitals, and simple steps to make any site load faster.</p>
+              <span class="blog-link">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+
+          <a href="blog/web-design-trends-2026.html" class="blog-card" data-reveal>
+            <div class="blog-thumb"><img src="images/blog/web-design-trends-2026.webp" alt="Web Design Trends 2026" loading="lazy" decoding="async"></div>
+            <div class="blog-body">
+              <span class="blog-date">Jul 2026 &middot; 4 min read</span>
+              <h3>5 Web Design Trends Shaping Small Business Sites in 2026</h3>
+              <p>From dark mode defaults to lightweight animation, here's what's actually worth adopting this year.</p>
+              <span class="blog-link">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+
+        <div class="tools-cta" data-reveal>
+          <a href="blog.html" class="btn btn-outline">View All Blogs <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- testimonials -->
+    <section id="testimonials" class="section testimonials">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Testimonials</span>
+          <h2>What clients say</h2>
+          <p>A few words from people I've built websites and brands for.</p>
+        </div>
+
+        <div class="testimonial-carousel" data-reveal>
+          <div class="testimonial-track">
+            <div class="testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Ameen built our WooCommerce store from the ground up. Communication was clear the whole way and the site was delivered ahead of schedule.</p>
+              <div class="testimonial-author">
+                <div class="avatar">H</div>
+                <div><h4>Hamali Store</h4><span>Ecommerce Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>We needed a booking focused site for our car rental business fast. Ameen delivered a clean Artificial Intelligence build that our customers find easy to use.</p>
+              <div class="testimonial-author">
+                <div class="avatar">D</div>
+                <div><h4>Drive Elite</h4><span>Car Rental Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Great attention to detail on both design and SEO. The site loads fast and ranks well, exactly what we asked for.</p>
+              <div class="testimonial-author">
+                <div class="avatar">Q</div>
+                <div><h4>Qanadeel Project</h4><span>Web Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Our trading platform concept needed a clean, trustworthy layout. Ameen nailed the design and kept the checkout flow simple.</p>
+              <div class="testimonial-author">
+                <div class="avatar">T</div>
+                <div><h4>Tradenest</h4><span>WooCommerce Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Fast turnaround on our visa and hosting landing page. The hand coded build feels noticeably quicker than our old site.</p>
+              <div class="testimonial-author">
+                <div class="avatar">V</div>
+                <div><h4>Visa Hosting</h4><span>Landing Page Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Ameen set up our Artificial Intelligence site with a strong focus on SEO from day one. Readability and search visibility both improved.</p>
+              <div class="testimonial-author">
+                <div class="avatar">HI</div>
+                <div><h4>Hayat Islamic</h4><span>Informational Site Client</span></div>
+              </div>
+            </div>
+
+            <!-- duplicate set for seamless infinite loop -->
+            <div class="testimonial-card" aria-hidden="true">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Ameen built our WooCommerce store from the ground up. Communication was clear the whole way and the site was delivered ahead of schedule.</p>
+              <div class="testimonial-author">
+                <div class="avatar">H</div>
+                <div><h4>Hamali Store</h4><span>Ecommerce Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card" aria-hidden="true">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>We needed a booking focused site for our car rental business fast. Ameen delivered a clean Artificial Intelligence build that our customers find easy to use.</p>
+              <div class="testimonial-author">
+                <div class="avatar">D</div>
+                <div><h4>Drive Elite</h4><span>Car Rental Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card" aria-hidden="true">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Great attention to detail on both design and SEO. The site loads fast and ranks well, exactly what we asked for.</p>
+              <div class="testimonial-author">
+                <div class="avatar">Q</div>
+                <div><h4>Qanadeel Project</h4><span>Web Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card" aria-hidden="true">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Our trading platform concept needed a clean, trustworthy layout. Ameen nailed the design and kept the checkout flow simple.</p>
+              <div class="testimonial-author">
+                <div class="avatar">T</div>
+                <div><h4>Tradenest</h4><span>WooCommerce Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card" aria-hidden="true">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Fast turnaround on our visa and hosting landing page. The hand coded build feels noticeably quicker than our old site.</p>
+              <div class="testimonial-author">
+                <div class="avatar">V</div>
+                <div><h4>Visa Hosting</h4><span>Landing Page Client</span></div>
+              </div>
+            </div>
+            <div class="testimonial-card" aria-hidden="true">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>Ameen set up our Artificial Intelligence site with a strong focus on SEO from day one. Readability and search visibility both improved.</p>
+              <div class="testimonial-author">
+                <div class="avatar">HI</div>
+                <div><h4>Hayat Islamic</h4><span>Informational Site Client</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- cta -->
+    <section class="section cta-banner" data-reveal>
+      <div class="container cta-inner">
+        <div>
+          <h2>Have a project in mind?</h2>
+          <p>Let's turn it into a fast, well designed website.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+          <a href="mailto:coderameen.ai@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- pricing -->
+    <section id="pricing" class="section pricing">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Pricing</span>
+          <h2>Packages to fit your project</h2>
+          <p>Simple starting points. Every project gets a proper quote once I know the details.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card" data-reveal>
+            <h3>Landing Page</h3>
+            <p class="price">$120<span> / project</span></p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Single page, custom design</li>
+              <li><i class="fa-solid fa-check"></i> Fully responsive layout</li>
+              <li><i class="fa-solid fa-check"></i> Basic on page SEO</li>
+              <li><i class="fa-solid fa-check"></i> Contact form included</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+          </div>
+
+          <div class="price-card is-featured" data-reveal>
+            <h3>Business Website</h3>
+            <p class="price">$200<span> / project</span></p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Up to 6 pages</li>
+              <li><i class="fa-solid fa-check"></i> Artificial Intelligence or custom code</li>
+              <li><i class="fa-solid fa-check"></i> On page SEO and speed setup</li>
+              <li><i class="fa-solid fa-check"></i> 30 days of support</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+          </div>
+
+          <div class="price-card" data-reveal>
+            <h3>WooCommerce Store</h3>
+            <p class="price">$350<span> / project</span></p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Full online store setup</li>
+              <li><i class="fa-solid fa-check"></i> Product, cart and checkout pages</li>
+              <li><i class="fa-solid fa-check"></i> Payment gateway integration</li>
+              <li><i class="fa-solid fa-check"></i> 45 days of support</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline btn-sm">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- faq -->
+    <section id="faq" class="section faq">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">FAQs</span>
+          <h2>Common questions</h2>
+        </div>
+
+        <div class="faq-list" data-reveal>
+          <div class="faq-item">
+            <button class="faq-question">How long does a typical website take? <i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>A landing page usually takes 3 to 5 days, while a full business website or store takes 2 to 3 weeks depending on content and revisions.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you work with Artificial Intelligence or custom code? <i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>Both. I build on Artificial Intelligence when a client needs to manage content themselves, and hand code with HTML, CSS and JavaScript when a project needs a lighter, fully custom build.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Will my website work on mobile? <i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>Yes, every project is built responsive from the start and tested across phone, tablet and desktop sizes.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you offer support after launch? <i class="fa-solid fa-plus"></i></button>
+            <div class="faq-answer"><p>Every package includes a support window after launch, and I'm available afterward for ongoing updates or fixes.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <div class="contact-info" data-reveal>
+          <span class="eyebrow">Contact</span>
+          <h2>Let's build something together</h2>
+          <p style="color: var(--text-muted); margin-top: 1em;">Have a project in mind? Send a few details and I'll get back to you shortly.</p>
+
+          <div class="info-item">
+            <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+            <a href="mailto:coderameen.ai@gmail.com">coderameen.ai@gmail.com</a>
+          </div>
+          <div class="info-item">
+            <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+            <span>Abbottabad, Pakistan</span>
+          </div>
+          <div class="info-item">
+            <div class="icon"><i class="fa-solid fa-clock"></i></div>
+            <span>Usually replies within 24 hours</span>
+          </div>
+
+          <div class="contact-note">
+            <h3>What happens next?</h3>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> I go through your message and requirements</li>
+              <li><i class="fa-solid fa-check"></i> We hop on a quick call or chat to align on scope</li>
+              <li><i class="fa-solid fa-check"></i> You get a clear quote and timeline before we start</li>
+            </ul>
+          </div>
+        </div>
+
+       <div class="contact-form" data-reveal>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="af044426-292a-4843-9150-8e5b795de992">
+            <input type="hidden" name="subject" value="New message from portfolio site">
+            <input type="checkbox" name="botcheck" style="display:none">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname"><i class="fa-solid fa-user"></i> First Name</label>
+                <input type="text" id="fname" name="First Name" placeholder="Ameen" required>
+              </div>
+              <div class="form-group">
+                <label for="lname"><i class="fa-solid fa-user"></i> Last Name</label>
+                <input type="text" id="lname" name="Last Name" placeholder="hasan" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+                <input type="email" id="email" name="Email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="whatsapp"><i class="fa-solid fa-phone"></i> Phone</label>
+                <input type="tel" id="whatsapp" name="Phone Number" placeholder="+92 300 1234567">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="service"><i class="fa-solid fa-list-check"></i> Service Required</label>
+              <select id="service" name="Service Required">
+                <option>Artificial Intelligence Website</option>
+                <option>Custom Code Website</option>
+                <option>WooCommerce Store</option>
+                <option>Graphic Design</option>
+                <option>Agency Website</option>
+                <option>Business Website</option>
+                <option>Ecommerce Website</option>
+                <option>Educational Website</option>
+                <option>Healthcare Website</option>
+                <option>Landing Page</option>
+                <option>Portfolio Website</option>
+                <option>Real Estate Website</option>
+                <option>Restaurant Website</option>
+                <option>SaaS Website</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message"><i class="fa-solid fa-message"></i> Message</label>
+              <textarea id="message" name="Message" placeholder="Tell me a bit about your project..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              Send Message <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- image lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close image"><i class="fa-solid fa-xmark"></i></button>
+    <div class="lightbox-scroll">
+      <img src="" alt="" id="lightbox-img" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="#home" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

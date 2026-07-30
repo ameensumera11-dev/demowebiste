@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Currency Converter Online — Live Exchange Rates | Coder Ameen</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta name="description" content="Free currency converter with live exchange rates, updated in real time. Convert between USD, PKR, EUR, GBP and 150+ currencies instantly.">
+  <meta name="keywords" content="free currency converter online, live exchange rate calculator, usd to pkr converter, currency exchange rate calculator">
+  <meta name="author" content="Ameen hasan">
+
+  <link rel="canonical" href="https://code-cove-nine.vercel.app/tool-currency-converter.html">
+
+  <meta property="og:title" content="Free Currency Converter — Live Exchange Rates">
+  <meta property="og:description" content="Free currency converter with live exchange rates for 150+ currencies, updated in real time.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://code-cove-nine.vercel.app/tool-currency-converter.html">
+  <meta property="og:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Currency Converter — Live Exchange Rates">
+  <meta name="twitter:description" content="Free currency converter with live exchange rates for 150+ currencies, updated in real time.">
+  <meta name="twitter:image" content="https://code-cove-nine.vercel.app/images/ameenlogmain.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://code-cove-nine.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://code-cove-nine.vercel.app/tools.html" },
+      { "@type": "ListItem", "position": 3, "name": "Currency Converter", "item": "https://code-cove-nine.vercel.app/tool-currency-converter.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Free Currency Converter",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any (runs in browser)",
+    "url": "https://code-cove-nine.vercel.app/tool-currency-converter.html",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert between world currencies using live exchange rates, free and instant."
+  }
+  </script>
+
+  <style>
+    .converter-box{
+      background: var(--bg-surface);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+      padding: 2.2em;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .currency-row{
+      display: flex;
+      gap: 1em;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 1.4em;
+    }
+    .currency-field{
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+      flex: 1;
+      min-width: 140px;
+    }
+    .currency-field label{
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+    .currency-field input, .currency-field select{
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: .7em 1em;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+    .swap-btn{
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-surface-2);
+      color: var(--color-accent);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-bottom: .1em;
+    }
+    .result-box{
+      text-align: center;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 1.6em;
+    }
+    .result-box .result-value{
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .result-box .result-meta{
+      font-size: .82rem;
+      color: var(--text-muted);
+      margin-top: .5em;
+    }
+  </style>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4736MEK08"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B4736MEK08');
+  </script>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-mark"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+  </div>
+  <script>
+    setTimeout(function(){
+      var l = document.querySelector('.loader');
+      if (l) l.classList.add('is-hidden');
+    }, 4000);
+  </script>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="project.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="tools.html" class="is-active">Tools</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <button class="close-menu" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="project.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="tools.html">Tools</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal><i class="fa-solid fa-money-bill-transfer"></i> Free Tool</span>
+        <h1 data-reveal>Free Currency Converter</h1>
+        <p data-reveal>Live exchange rates for 150+ currencies, refreshed from an open exchange rate feed. Type an amount, pick two currencies, done.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="converter-box" data-reveal>
+          <div class="currency-row">
+            <div class="currency-field">
+              <label for="amountInput">Amount</label>
+              <input type="number" id="amountInput" value="1" min="0" step="any">
+            </div>
+            <div class="currency-field">
+              <label for="fromCurrency">From</label>
+              <select id="fromCurrency"></select>
+            </div>
+            <button class="swap-btn" id="swapBtn" aria-label="Swap currencies"><i class="fa-solid fa-right-left"></i></button>
+            <div class="currency-field">
+              <label for="toCurrency">To</label>
+              <select id="toCurrency"></select>
+            </div>
+          </div>
+
+          <div class="result-box">
+            <div class="result-value" id="resultValue">Loading rates...</div>
+            <div class="result-meta" id="resultMeta"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-article">
+        <article>
+          <h2>How this converter works</h2>
+          <p>This tool pulls live exchange rates from an open, free exchange rate feed and calculates the conversion instantly in your browser. Rates are refreshed daily, which is accurate enough for everyday use, travel planning, or checking approximate freelance/invoice values across currencies.</p>
+          <p>For time sensitive, high value transactions, always confirm the exact rate with your bank or payment provider, since real time trading rates can differ slightly from the daily reference rate used here.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-banner" data-reveal>
+      <div class="container cta-inner">
+        <div>
+          <h2>Building an ecommerce or SaaS site?</h2>
+          <p>I can integrate live pricing, multi currency checkout, or custom tools like this directly into your website.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+          <a href="mailto:coderameen.ai@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="logo">Coder <span>Ameen</span></a>
+          <p style="margin-top: .8em;">Building the web, one project at a time.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/coderameen" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-ameenul-hasan-682a48195/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/cove.code/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:coderameen.ai@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Coder Ameen. All Rights Reserved.</span>
+        <span class="credit">Designed by <a href="mailto:coderameen.ai@gmail.com" class="credit-link">Ameen</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-hint" id="chatHint">👋 Ask me anything about this site or my services</div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat, ask about this website or services">
+    <i class="fa-solid fa-comment-dots"></i>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h4>Coder Ameen Assistant</h4>
+        <span><span class="status-dot"></span> Online, ask me anything</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi! I'm Ameen's assistant. Ask me about his projects, pricing, or how to get started — in any language you like.</div>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function(){
+      const amountInput = document.getElementById('amountInput');
+      const fromCurrency = document.getElementById('fromCurrency');
+      const toCurrency = document.getElementById('toCurrency');
+      const swapBtn = document.getElementById('swapBtn');
+      const resultValue = document.getElementById('resultValue');
+      const resultMeta = document.getElementById('resultMeta');
+
+      let rates = {};
+      let baseCurrency = 'USD';
+      let lastUpdated = '';
+
+      const popular = ['USD', 'EUR', 'GBP', 'PKR', 'AED', 'SAR', 'INR', 'CAD', 'AUD', 'JPY', 'CNY', 'TRY'];
+
+      function populateSelect(select, selected){
+        const currencies = Object.keys(rates).length ? Object.keys(rates) : popular;
+        const ordered = [...popular.filter(c => currencies.includes(c)), ...currencies.filter(c => !popular.includes(c)).sort()];
+        select.innerHTML = ordered.map(c => `<option value="${c}" ${c === selected ? 'selected' : ''}>${c}</option>`).join('');
+      }
+
+      function calculate(){
+        const amount = parseFloat(amountInput.value) || 0;
+        const from = fromCurrency.value;
+        const to = toCurrency.value;
+        if (!rates[from] || !rates[to]) return;
+
+        const inBase = amount / rates[from];
+        const result = inBase * rates[to];
+
+        resultValue.textContent = `${amount || 0} ${from} = ${result.toLocaleString(undefined, { maximumFractionDigits: 4 })} ${to}`;
+        resultMeta.textContent = `1 ${from} = ${(rates[to] / rates[from]).toFixed(4)} ${to} · Rates updated ${lastUpdated}`;
+      }
+
+      async function loadRates(){
+        try {
+          const res = await fetch('https://open.er-api.com/v6/latest/USD');
+          const data = await res.json();
+          if (data.result !== 'success') throw new Error('rate fetch failed');
+          rates = data.rates;
+          lastUpdated = data.time_last_update_utc ? new Date(data.time_last_update_utc).toLocaleDateString() : 'recently';
+
+          populateSelect(fromCurrency, 'USD');
+          populateSelect(toCurrency, 'PKR');
+          calculate();
+        } catch (err) {
+          resultValue.textContent = "Couldn't load live rates";
+          resultMeta.textContent = 'Please check your connection and refresh the page.';
+        }
+      }
+
+      amountInput.addEventListener('input', calculate);
+      fromCurrency.addEventListener('change', calculate);
+      toCurrency.addEventListener('change', calculate);
+      swapBtn.addEventListener('click', () => {
+        const temp = fromCurrency.value;
+        fromCurrency.value = toCurrency.value;
+        toCurrency.value = temp;
+        calculate();
+      });
+
+      loadRates();
+    })();
+  </script>
+</body>
+</html>
